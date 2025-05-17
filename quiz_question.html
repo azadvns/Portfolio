@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <style>
+        .green {
+            background-color: green;
+            color: lightseagreen;
+        }
+
+        .red {
+            background-color: red;
+            color: lightcoral;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <h1 style="color: blueviolet;">QUIZ</h1>
+    <div style="color: blueviolet;">A game or competition in which you have to answer question</div>
+
+    <div id="output"></div>
+
+    <div id="show" style="display: none;  ">
+        <table border="1">
+
+
+
+            <tr>
+                <td>
+                    <p id="time"></p>
+                    <button onclick="runMyTimer()">Timer</button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <h2 id="r1"></h2>
+                </td>
+                <td colspan="3">
+                    <h2 id="h2question"></h2>
+                </td>
+            </tr>
+            <tr>
+                <td><label id="op1" for="result1"> </label></td>
+                <td><input value="0" style="display: none;" id="result1" name="operator" type="radio"></td>
+                <td>
+                    <label id="op2" for="result2"> </label>
+                </td>
+                <td><input value="1" style="display: none;" id="result2" name="operator" type="radio"></td>
+            </tr>
+
+            <tr>
+                <td> <label id="op3" for="result3"></label></td>
+                <td> <input value="2" style="display: none;" id="result3" name="operator" type="radio"> </td>
+                <td>
+
+                    <label id="op4" for="result4"></label>
+                </td>
+                <td> <input value="3" style="display: none;" id="result4" name="operator" type="radio"></td>
+            </tr>
+
+            <tr>
+                <td><label>Result</label></td>
+                <td id="sahi"></td>
+
+
+            </tr>
+
+
+            <tr>
+                <h1 id="scored"></h1>
+                <h1 style="color:aquamarine;">Score</h1>
+            </tr>
+
+        </table>
+
+        <input style="display: none;" id="defaultradio" name="operator" type="radio">
+
+        <td><button onclick="showQuestion()">Submit</button></td>
+    </div>
+
+
+
+
+    <button id="show1" style="display: block;" onclick="strat()">Start</button>
+
+
+
+
+    <script>
+        let currentscore = 0;
+        let currentquestion;
+        const h2question = document.getElementById("h2question");
+
+        const scored = document.getElementById(`scored`);
+        // const h1answer = document.getElementById("h1answer");
+
+
+        const op1 = document.getElementById("op1");
+        const op2 = document.getElementById("op2");
+        const op3 = document.getElementById("op3");
+        const op4 = document.getElementById("op4");
+        const defaultradio = document.getElementById("defaultradio");
+
+        const data = `
+    [
+    {
+        "question": "What is the purpose of the printf function in C?",
+        "options": ["To take input from the user", "To output data to the console", "To declare variables", "To create functions"],
+        "answer": 2,
+        "explanation": "The printf function is used to output formatted data to the console. It allows you to display variables, text, and other data types."
+    },
+    {
+        "question": "What is the format specifier for an integer in printf?",
+        "options": ["%d", "%f", "%c", "%s"],
+        "answer": 1,
+        "explanation": "In printf, the format specifier %d is used to output an integer value."
+    },
+    {
+        "question": "How do you read a string input from the user in C?",
+        "options": ["scanf('%s', string);", "scanf('%d', string);", "gets(string);", "print(string);"],
+        "answer": 1,
+        "explanation": "You can read a string input using scanf with the format specifier %s. For example, scanf('%s', string); stores the input in the variable string."
+    },
+    {
+        "question": "Which format specifier is used for floating-point numbers?",
+        "options": ["%d", "%f", "%s", "%c"],
+        "answer": 2,
+        "explanation": "The format specifier %f is used in printf to output floating-point numbers."
+    }
+,
+{
+    "question": "New Q",
+    "options": ["%d", "%f", "%s", "%c"],
+    "answer": 2,
+    "explanation": "The format specifier %f is used in printf to output floating-point numbers."
+}
+]`;
+        let qno = 0;
+        let score = 0;
+        const n = 5;
+        const questions = JSON.parse(data);
+
+        function strat() {
+            show.style.display = "block";
+            show1.style.display = "none";
+        }
+
+        function showQuestion() {
+
+// alert("inside show question");
+
+            if (qno == 0) {
+
+                result1.style.display = "block";
+                result2.style.display = "block";
+                result3.style.display = "block";
+                result4.style.display = "block";
+            }
+
+
+            if (qno >= 1) {
+                // alert("check answer");
+                const givenanswer = getGivenAnswer();
+                // if (givenanswer == 0) {
+                   
+                    // alert("Please select an answer");
+                    // return;
+                // }
+                const actualanswer = currentquestion.answer;
+                const result = document.getElementById("sahi");
+
+                // alert(`givenanswer =${givenanswer}   ${actualanswer}`);
+                if (givenanswer == actualanswer) {
+                    score = score + 1;
+                    result.classList.remove("red");
+                    result.classList.add("green");
+                    result.innerText = "correct";
+
+
+                }
+                else {
+                    result.innerText = "wrong";
+                    result.classList.add("red");
+                    result.classList.remove("green");
+
+
+                }
+
+
+            }
+
+
+            defaultradio.checked = true;
+            if (qno >= n) {
+                alert("Test Over");
+                return;
+            }
+
+
+            currentquestion = questions[qno];
+            runMyTimer();
+            
+            qno++;
+            
+            h2question.innerText = currentquestion.question;
+            
+            
+            scored.innerText = score;
+            
+
+
+            // r1.innerText = qno;
+
+            op1.innerText = currentquestion.options[0];
+            op2.innerText = currentquestion.options[1];
+
+            op3.innerText = currentquestion.options[2];
+            op4.innerText = currentquestion.options[3];
+           
+          
+        }
+
+
+
+        // const outputDiv=document.getElementById(`output`);
+
+        function getGivenAnswer() {
+            if (defaultradio.checked)
+                return 0;
+            if (result1.checked)
+                return 1;
+            if (result2.checked)
+                return 2;
+            if (result3.checked)
+                return 3;
+            if (result4.checked)
+                return 4;
+                
+        }
+
+
+        let mytimer = null;
+            const timeshow = document.getElementById("time");
+            let fulltimer = 30;
+
+            let count = 0;
+            function timer() {
+
+                console.log(count);
+                timeshow.innerText = count;
+                count++;
+                if (count > fulltimer) {
+                    timeshow.innerText = "text over";
+                    clearInterval(mytimer);
+                    console.log("show question before");
+                    showQuestion();
+                    return;
+                }
+            }
+
+                function runMyTimer() {
+                    clearInterval(mytimer);
+                    count = 0;
+                    mytimer = setInterval(timer, 1000);
+                }
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
