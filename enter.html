@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter</title>
+
+  
+<style>
+  .blue {
+    background-color: blue;
+    color: white;
+  }
+  .red {
+    background-color: red;
+    color: white;
+  }
+</style>
+ </head>
+ <body>
+  
+  <button id="myButton" class="blue">Hover Me</button>
+  <script>
+  let button = document.getElementById("myButton");
+
+  button.addEventListener("mouseenter", function() {
+    this.classList.replace("blue", "red");
+  });
+
+  button.addEventListener("mouseleave", function() {
+    this.classList.replace("red", "blue");
+  });
+  </script>
+ </body>
+ </html>

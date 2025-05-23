@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        .height{
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="search" id="t1" onkeyup="selectname()"><br>
+   <h1 title="abhi">abhi
+    <img class="height" src="image/0.PNG">
+   </h1>
+   <h1 title="shyam">shyam
+    <img class="height" src="image/1.PNG">
+   </h1>
+   <h1 title="ravi">ravi
+    <img class="height" src="image/2.PNG">
+   </h1>
+   <h1 title="kishan">kishan
+    <img class="height" src="image/3.PNG">
+   </h1>
+   <script>
+    function selectname(){
+        let name=document.getElementById("t1").value.toLowerCase();
+        console.log(name);
+        let max=document.getElementsByTagName("h1");
+        console.log(max.length);
+         n=max.length;
+
+        for(let i=0;i<=n-1;i++){
+        let x=(max[i].title.toLowerCase().trim());  
+        console.log(x);  
+        if(x.includes(name)){
+          max[i].style.display="block"  
+        }
+        else{
+            max[i].style.display="none"
+        }
+        }
+    }
+   </script>
+</body>
+</html>

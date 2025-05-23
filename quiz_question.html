@@ -15,6 +15,13 @@
             background-color: red;
             color: lightcoral;
         }
+        .quiz{
+            background-color: blueviolet;
+            color: white;
+            border-style: ridge;
+            border-color: aqua;
+            border-radius: 20px;
+        }
     </style>
 
 </head>
@@ -22,9 +29,9 @@
 <body>
 
 
-
-    <h1 style="color: blueviolet;">QUIZ</h1>
-    <div style="color: blueviolet;">A game or competition in which you have to answer question</div>
+<center>
+    <h1 class="quiz">QUIZ</h1>
+    <div style="color: blueviolet; font-size: 20px;">A game or competition in which you have to answer question</div>
 
     <div id="output"></div>
 
@@ -78,21 +85,21 @@
 
             <tr>
                 <h1 id="scored"></h1>
-                <h1 style="color:aquamarine;">Score</h1>
+                <h1 style="color:green;">Score</h1>
             </tr>
 
         </table>
 
         <input style="display: none;" id="defaultradio" name="operator" type="radio">
 
-        <td><button onclick="showQuestion()">Submit</button></td>
+        <td><button onclick="showQuestion()">Start & Submit</button></td>
     </div>
 
 
 
 
-    <button id="show1" style="display: block;" onclick="strat()">Start</button>
-
+    <button id="show1" style="display: block; font-size: 20px;" onclick="strat()">Start</button>
+</center>
 
 
 
@@ -213,13 +220,14 @@
             qno++;
             
             h2question.innerText = currentquestion.question;
+            // qno++;
             
             
             scored.innerText = score;
             
 
 
-            // r1.innerText = qno;
+            r1.innerText = qno;
 
             op1.innerText = currentquestion.options[0];
             op2.innerText = currentquestion.options[1];

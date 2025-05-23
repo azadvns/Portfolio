@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommorce</title>
+    <style>
+        .image {
+            display: flex;
+            flex-direction: row;
+            /* box-shadow: 5px 5px 10px #888888; */
+            margin-top: 50px;
+            height: 200px;
+            cursor: pointer;
+            /* background-color: aqua; */
+            flex-wrap: wrap;
+        margin-left: 80px;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+        .force{
+            object-fit: cover;
+        }
+        .force:hover{
+            transform: scale(1.1);
+        }
+        .input{
+            height: 30px;
+            width: 300px;border-radius: 20px;
+            color: black;
+            background-color: bisque;
+            border-style: ridge;
+            border-color: blue;
+            color: white;
+            font-size: 20px;
+            flex-wrap: wrap;
+            /* margin-left: 500px; */
+            
+            
+        }
+        .input:hover{
+            background-color: blue;
+        }
+        .input:hover:focus{
+            background-color: aqua;
+        }
+        .shopping{
+            background-color: blue;
+            border-style: ridge;
+            border-color: aquamarine;
+            border-radius: 20px;
+            box-sizing: 5px 5px 10px #888888;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <h1 class="shopping"> Amazon Shopping</h1>
+
+    
+        <input class="input" type="text" id="t1"
+            onchange="selectimage()" onkeyup="selectimage()" placeholder=" Please Search">
+</center>
+    <div class="col">
+        <div class="image">
+            <img onchange="add()"  value="+" id="w1" class="force" style="margin: 10px; " src="image/book.jpg " alt="book">
+        
+            <img onchange="add()" value="+" id="w2" class="force" style="margin: 10px;" src="image/camera.jpg" alt="camera">
+            <img onchange="add()" id="w3" class="force" style="margin: 10px;" src="image/cloth.jpg" alt="cloth">
+            <img onchange="add()" id="w4" class="force" style="margin: 10px;" src="image/cloth1.jpg" alt="cloth">
+        
+            <img onchange="add()" id="w5" class="force" style="margin: 10px; " src="image/bag.jpg" alt="bag">
+            <img onchange="add()" id="w6" class="force" style="margin: 10px;" src="image/laptop.jpg" alt="laptop">
+            <img onchange="add()" id="w7" class="force" style="margin: 10px;" src="image/mobile.jpg" alt="mobile">
+            <img onchange="add()" id="w8" class="force" style="margin: 10px;" src="image/fan.jpg" alt="fan">
+        </div>
+    </div>
+
+    <script>
+let count=Number(localStorage.getItem("count"));
+const td1=document.getElementById("w1");
+
+function add(){
+    console.log(count);
+            localStorage.getItem(`count`,count);
+            td1.innerHTML=count;
+            count++;
+
+}
+
+function negative(){
+    console.log(count);
+            localStorage.getItem(`count`,count);
+            td1.innerHTML=count;
+            count--;
+   
+}
+
+// ****************************************************************************************
+        function selectimage() {
+            let name = document.getElementById("t1").value.toLowerCase();
+            console.log(name);
+            let image = document.getElementsByTagName("img");
+            console.log(image.length);
+            n = image.length;
+
+            for (let i = 0; i <= n - 1; i++) {
+                let x = (image[i].alt.toLowerCase().trim());
+                console.log(x);
+                if (x.includes(name)) {
+                    image[i].style.display = "block";
+                }
+                else {
+                    image[i].style.display = "none"
+                }
+            }
+            
+           
+        }
+        
+
+    
+    </script>
+    
+</body>
+
+</html>

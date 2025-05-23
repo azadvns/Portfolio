@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes spin{
+            0%{left: 0%; top: 0%;}
+            25%{left: 90%;top: 0%;}
+            50%{left: 90%; top: 80%;}
+            75%{left: 0%; top: 80%;}
+            100%{left: 0%; top: 0%;}
+
+        }
+        .rotate{
+        
+            position: absolute;
+            animation-name: spin;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <img class="rotate" src="picture/azad/azad0.jpg">
+</body>
+</html>

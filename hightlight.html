@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_Remove</title>
+    
+<style>
+
+.image{
+  position:absolute;
+  top: 100px;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+}
+
+
+  .highlight {
+    background-color: yellow;
+    color: blue;
+  }
+  
+</style>
+
+</head>
+<body>
+
+  <button onclick="f1()">Add </button>
+    <button onclick="f2()">remove</button>
+   <script>
+ function f1(){
+  let t1=document.getElementById("t1");
+  t1.classList.add("highlight");
+  console.log(t1);
+ }
+
+function f2(){
+  let t1=document.getElementById("t1");
+  t1.classList.remove("highlight");
+  console.log(t1);
+}
+
+
+  
+</script> 
+<input class="image" type="number" id="t1" placeholder="color">
+<!-- <img id="t1" class="image" src="image/camera.jpg"> -->
+</body>
+</html>
+<!-- ************************************************************************* -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+ 
+<style>
+  body.dark-mode {
+    background-color: black;
+    color: white;
+  }
+</style>
+
+ </head>
+ <body>
+   <button id="toggleTheme">Toggle Theme</button>
+  <script>
+  document.getElementById("toggleTheme").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+  });
+</script>
+ </body>
+ </html>
+ <!-- ************************************************************************************* -->
+
+ 

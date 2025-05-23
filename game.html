@@ -27,7 +27,7 @@
             border-style: ridge;
             animation-name: rotate;
             animation-duration: 3s;
-            animation-iteration-count: infinite;
+            animation-iteration-count: 2;
             animation-direction: alternate;
         }
 
@@ -36,13 +36,21 @@
 .centerboard{
   display: flex;
   justify-content: center;
+  
+}
+.game{
+  background-color: blue;
+  color: white;
+  border-radius: 20px;
+  border-style: ridge;
+  border-color: aqua;
 }
   </style>
 
 </head>
 
 <body>
-<h1 class="centerboard">Game Tic Tac</h1>
+<h1 class="centerboard game">Game Tic Tac</h1>
      <div class="centerboard"><img class="spinner" src="game.jpg "></div>
 
 
@@ -54,8 +62,8 @@
 
 
 
-  <input type="name" placeholder="please your name" id="txtPlayer2" type="text" class="Nitin">
-  <br>
+  <input type="name" placeholder="please your name" id="txtPlayer2" type="text" class="Nitin"><br>
+  
   
     
   <button class="Game start" onclick="f()" type="submit">Start</button>

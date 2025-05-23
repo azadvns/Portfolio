@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        @keyframes cancel {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .lupt {
+            animation-name: cancel;
+            position: absolute;
+            animation-iteration-count: infinite;
+            animation-duration: 10s;
+            animation-direction: alternate;
+
+        }
+
+
+
+        /* ************************************************ */
+        @keyframes rotate {
+            0% {
+                left: 0%;
+                top: 0%;
+            }
+
+            25% {
+                left: 90%;
+                top: 0%;
+            }
+
+            50% {
+                left: 90%;
+                top: 80%;
+            }
+
+            75% {
+                left: 0%;
+                top: 80%;
+            }
+
+            100% {
+                left: 0%;
+                top: 0%;
+
+            }
+        }
+
+        .spinner {
+            position: absolute;
+            animation-name: rotate;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-duration: 20s;
+
+        }
+
+        .image {
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+
+        }
+
+
+        /*************************************************************************/
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+
+        /* *********************************************************** */
+        .color {
+            display: flex;
+            justify-content: center;
+            background-color: green;
+            height: 50px;
+            color: white;
+            border-radius: 20px;
+            border-style: ridge;
+            border-color: blue;
+        }
+
+        .color:hover {
+            background-color: blue;
+        }
+
+        .input {
+            display: flex;
+            justify-content: center;
+            height: 30px;
+            width: 400px;
+            border-radius: 20px;
+            border-style: ridge;
+            border-color: blue;
+            font-size: 20px;
+
+
+        }
+
+
+        .allclass {
+            background-color: blue;
+            width: 150px;
+            height: 30px;
+            color: white;
+            flex-wrap: wrap;
+            /* box-shadow: 5px 5px 10px #888888; */
+            position: static;
+            border-radius: 10px;
+            font-size: 20px;
+            border-color: rgb(172, 232, 232);
+            border-style: ridge;
+            margin-left: 10%;
+        }
+
+        .allclass:hover {
+            background-color: gold;
+            color: black;
+        }
+
+        .allclass:focus {
+            background-color: blueviolet;
+        }
+
+        .allclass:focus:hover {
+            background-color: greenyellow;
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+            height: 50px;
+            border-radius: 20px;
+            border-style: ridge;
+            border-color: blue;
+
+
+        }
+
+        .name:hover {
+            background-color: rgb(0, 255, 119);
+        }
+
+        .button {
+            width: 100px;
+            height: 30px;
+            border-radius: 20px;
+            border-color: blue;
+            position: absolute;
+            top: 170px;
+            margin-left: 205px;
+        }
+    </style>
+</head>
+
+<body style="background-color: wheat; ">
+    <div class="spinner">
+        <img class="image" src="picture/azad/azad4.jpg">
+    </div>
+
+    <h1 class="name">AZAD PRAJAPATI</h1>
+
+    <h1 class="color">This is my portfolio</h1>
+    <center>
+        <input class="input" type="search" id="t1" onkeyup="selectname()" placeholder="Search Programs">
+        <button class="button" id="add"></button>
+        <br><br><br>
+    </center>
+
+    <div class="row">
+
+        <a class="allclass" href="animation.html" target="_blank" title="animation">Animation</a><br><br><br><br>
+        <a class="allclass" href="left_right.html" target="_blank"
+            title="Animation_Rotate">Animation_Rotate</a><br><br><br><br>
+        <a class="allclass" href="ecommerce.html" target="_blank" title="amazon shopping"> Amazon
+            Shopping</a><br><br><br><br>
+        <a class="allclass" href="quiz_question.html" target="_blank" title="question answer">Question
+            Answer</a><br><br><br><br>
+
+        <a class="allclass" href="whatsapp.html" target="_blank" title="mobile whatsapp">Mobile
+            Whatsapp</a><br><br><br><br>
+        <a class="allclass" href="facebook.html" target="_blank" title="mobile facebook">Mobile
+            Facebook</a><br><br><br><br>
+        <a class="allclass" href="show_hide.html" target="_blank" title="show hide ">Show Hide</a><br><br><br><br>
+        <a class="allclass" href="fetch_character.html" target="_blank" title=" swapi api ">Swapi
+            Api</a><br><br><br><br>
+
+        <a class="allclass" href="game.html" target="_blank" title=" tictoctoe game">Tictoctoe Game</a><br><br><br><br>
+        <a class="allclass" href="chess.html" target="_blank" title=" chess game">Chess Game</a><br><br><br><br>
+        <a class="allclass" href="time.html" target="_blank" title=" time second ">Time Second </a><br><br><br><br>
+        <a class="allclass" href="month.html" target="_blank" title=" calender Year">Calender Year </a><br><br><br><br>
+
+        <a class="allclass" href="local_storage.html" target="_blank" title="localstorage">Local Storage
+        </a><br><br><br><br>
+        <a class="allclass" href="speech.html" target="_blank" title="speech">Speech </a><br><br><br><br>
+        <a class="allclass" href="kashi.html" target="_blank" title="kashi">Kashi </a><br><br><br><br>
+        <a class="allclass" href="json.html" target="_blank" title="json">Json </a><br><br><br><br>
+
+    </div>
+
+
+
+    <!-- **************************************************************************************************** -->
+    <script>
+
+        const add = document.getElementById("add");
+
+        function selectname() {
+            let count = 0;
+            let name = document.getElementById("t1").value.toLowerCase();
+            console.log(name);
+            let place = document.getElementsByTagName("a");
+            console.log(place.length);
+            n = place.length;
+
+            for (let i = 0; i <= n - 1; i++) {
+                count++;
+                let x = (place[i].title.toLowerCase().trim());
+                console.log(x)
+                if (x.includes(name)) {
+                    place[i].style.display = "block";
+
+                    place[i].classList.add("lupt");
+                    place[i].classList.remove("lupt");
+                }
+                else {
+                    place[i].style.display = "none";
+                    place[i].classList.add("lupt");
+                    place[i].classList.remove("lupt");
+                    count--;
+                }
+                add.innerHTML = `Found:${count}`;
+            }
+        }
+        selectname();
+        // **************************************************************************************
+
+
+    </script>
+    <!-- <img src="image/whatsapp.7f3687b9-847d-4f86-bb5c-c73259e2b38e"> -->
+</body>
+
+</html>
