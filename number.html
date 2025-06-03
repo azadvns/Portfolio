@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        canvas {
+            max-width: 80%;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 70px;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            background-color: blue;
+            color: aquamarine;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: row;">
+        X<input type="text" id="txtX">
+
+        Y<input type="text" id="txtY">
+    </div>
+    <div style="display: flex;flex-direction: row;">
+
+        <button style="display: none;" onclick="line()">line</button>
+        <button onclick="solve()">Solved</button>
+        <button style="display: none;" onclick="arrayclick()">click</button>
+    </div>
+    <pre id="x1"></pre>
+    <pre id="y1"></pre>
+    <pre id="output"></pre>
+    <canvas id="myChart"></canvas>
+
+
+
+    <script>
+
+        function solve() {
+            const x = document.getElementById("txtX").value.toLowerCase().trim();
+
+            let xarray = x.split(",");
+            console.log(x);
+            console.log(xarray);
+            let n = xarray.length;
+            for (let i = 0; i <= n - 1; i++)
+                xarray[i] = Number([xarray[i]]);
+            console.log(xarray);
+            let x1 = `
+  x:${xarray}
+  
+  `;
+            document.getElementById("x1").textContent = x1;
+
+
+
+            const y = document.getElementById("txtY").value.toLowerCase().trim();
+            let yarray = y.split(",");
+            console.log(y);
+            console.log(yarray);
+            let m = yarray.length;
+            for (let i = 0; i <= m - 1; i++)
+                yarray[i] = Number([yarray[i]]);
+            console.log(yarray);
+
+            let y1 = `
+y:${yarray}
+`;
+
+            document.getElementById("y1").textContent = y1;
+            arrayclick(xarray, yarray);
+            line(xarray,yarray);
+        }
+
+
+
+        // *********************************************************
+        function arrayclick(x, y) {
+            // const x = [1, 2, 3, 4, 5];
+            const n = x.length;
+
+            let sigmax = 0;
+            for (let i = 0; i <= n - 1; i++) {
+                sigmax += x[i];
+            }
+            console.log(`X = ${x}`);
+            console.log(`sigmax = ${sigmax}`);
+
+            // *********************************************
+
+
+
+            // const y = [2, 3, 5, 4, 6];
+
+            const p = y.length;
+
+            let sigma_y = 0;
+            for (let i = 0; i <= p - 1; i++) {
+                sigma_y += y[i];
+            }
+            console.log(`Y=${y}`);
+            console.log(`sigmay=${sigma_y}`);
+
+            // ***************************************************
+
+            let x2 = x.map(i => i * i);
+            const q = x2.length;
+            let sigma_x2 = 0;
+            for (let i = 0; i <= q - 1; i++) {
+                sigma_x2 += x2[i];
+            }
+            console.log(`X2=${x2}`);
+            console.log(`sigmax2=${sigma_x2}`);
+
+            //    *******************************************************
+
+
+            let y2 = y.map(i => i * i);
+            const r = y2.length;
+            let sigma_y2 = 0;
+            for (let i = 0; i <= r - 1; i++) {
+                sigma_y2 += y2[i];
+            }
+            console.log(`Y2=${y2}`);
+            console.log(`sigmay2=${sigma_y2}`);
+            //    ******************************************************************
+
+            let xy = x.map((val, i) => val * y[i]);
+            console.log(xy);
+            // alert(xy);
+            const s = xy.length;
+            let sigma_xy = 0;
+            for (let i = 0; i <= s - 1; i++) {
+                sigma_xy += xy[i];
+            }
+            console.log(`XY=${xy}`);
+            console.log(`sigmaxy=${sigma_xy}`);
+
+
+            const b = (n * sigma_xy - sigmax * sigma_y) / (n * sigma_x2 - sigmax * sigmax);
+            console.log(b);
+
+            const a = (sigma_y - b * sigmax) / (n);
+            console.log(a);
+
+            let output = `
+
+        x:${x}     sigmax=>   ${sigmax}
+        y:${y}     sigmay=>   ${sigma_y}
+        x2:${x2}   sigmax2=>  ${sigma_x2}
+        y2:${y2}   sigmay2=>  ${sigma_y2}
+        xy:${xy}   sigmaxy=>  ${sigma_xy}
+
+        b:${b}
+        a:${a}
+
+    
+        `;
+            document.getElementById("output").textContent = output;
+
+        }
+
+        // }
+
+
+        // const x = [1, 2, 3, 4, 5];
+        // const y = [2, 3, 5, 4, 6];
+
+
+        var ctx = document.getElementById("myChart").getContext(`2d`);
+        var myChart;
+
+
+
+        function line(x,y) {
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: `line`,
+                data: {
+                    labels: x,
+                    datasets: [{
+                        label: `Sales`,
+                        data: y,
+                        borderColor: `red`,
+                        backgroundColor:`blue`,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    Plugins: {
+                        legend: {
+                            position: `top`
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
+                    }
+                }
+            })
+
+        }
+
+    </script>
+
+</body>
+
+</html>

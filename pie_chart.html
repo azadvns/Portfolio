@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+            font-family: Arial,  sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        canvas{
+            max-width: 80%;
+            margin-top: 20px;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+
+        }
+    </style>
+</head>
+<body>
+    <button onclick="pie()">Pie</button>
+    <canvas id="myChart"></canvas>
+    <script>
+        const labels=[`January`,`Febuary`,`March`,`April`,`May`,`June`];
+        const data=[12,19,3,5,2,3];
+        var ctx=document.getElementById("myChart").getContext(`2d`);
+        var myChart;
+
+        function pie(){
+            if(myChart){
+                myChart.destroy();
+            }
+            myChart=new Chart(ctx,{
+                type:`pie`,
+                data:{
+                    labels:labels,
+                    datasets:[{
+                        data:data,
+                        backgroundColor:[`yellow`,`pink`,`green`,`lightsky`,`purple`,`red`],
+                        borderColor:[`yellow`,`pink`,`green`,`lightsky`,`purple`,`red`],
+                        borderWidth:1
+                    }]
+                },
+                options:{
+                    responsive:true,
+                    Plugin:{
+                        legend:{
+                            position:`top`,
+
+                        },
+                        tooltip:{
+                            enabled:true
+                        }
+                    }
+                }
+
+            })
+        }
+    </script>
+</body>
+</html>

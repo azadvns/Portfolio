@@ -6,26 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
     <style>
+        /* .hidethelink {
+
+            animation-name: hidinglink;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
+
+
+
+        }
+
+        @keyframes hidinglink {
+            0% {
+                opacity: 1;
+
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+
+
+            }
+        }
+
+
+        .showthelink {
+
+            animation-name: showinglink;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes showinglink {
+            0% {
+                opacity: 0;
+
+
+            }
+
+            100% {
+                opacity: 1;
+                display: block;
+
+
+            }
+        } */
+
+
+        /* ******************************************************************* */
+          a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+        @keyframes add {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                display: block;
+            }
+
+
+
+        }
+
+        .show {
+            animation-name: add;
+        
+            animation-iteration-count: 1;
+            animation-duration:5s;
+            animation-fill-mode: forwards;
+
+        }
+
         @keyframes cancel {
             0% {
                 opacity: 1;
+                /* background-color: brown; */
             }
 
-            50% {
+            100% {
                 opacity: 0;
+                display: none;
             }
+
+
+
         }
 
-        .lupt {
+        .hide {
             animation-name: cancel;
-            position: absolute;
-            animation-iteration-count: infinite;
-            animation-duration: 10s;
-            animation-direction: alternate;
+            /* position: absolute; */
+            animation-iteration-count: 1;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
 
         }
-
-
 
         /* ************************************************ */
         @keyframes rotate {
@@ -112,10 +193,10 @@
 
 
         .allclass {
-            background-color: blue;
-            width: 150px;
-            height: 30px;
-            color: white;
+            background-color: royalblue ;
+            /* width: 150px;
+            height: 30px; */
+            color: black;
             flex-wrap: wrap;
             /* box-shadow: 5px 5px 10px #888888; */
             position: static;
@@ -123,7 +204,7 @@
             font-size: 20px;
             border-color: rgb(172, 232, 232);
             border-style: ridge;
-            margin-left: 10%;
+            margin-left: 1%;
         }
 
         .allclass:hover {
@@ -164,6 +245,26 @@
             top: 170px;
             margin-left: 205px;
         }
+
+        .whatsapp {
+            width: 200px;
+            height: 30px;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            font-size: 20px;
+            margin-left: 500px;
+        }
+
+.img{
+    width: 200px;
+    height: 200px;
+margin-left: 40%;
+border-radius: 20px;
+border-style: ridge;
+border-color: aquamarine;
+}
+
     </style>
 </head>
 
@@ -183,32 +284,35 @@
 
     <div class="row">
 
-        <a class="allclass" href="animation.html" target="_blank" title="animation">Animation</a><br><br><br><br>
-        <a class="allclass" href="left_right.html" target="_blank"
-            title="Animation_Rotate">Animation_Rotate</a><br><br><br><br>
-        <a class="allclass" href="ecommerce.html" target="_blank" title="amazon shopping"> Amazon
-            Shopping</a><br><br><br><br>
-        <a class="allclass" href="quiz_question.html" target="_blank" title="question answer">Question
-            Answer</a><br><br><br><br>
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"> -->
 
-        <a class="allclass" href="whatsapp.html" target="_blank" title="mobile whatsapp">Mobile
-            Whatsapp</a><br><br><br><br>
-        <a class="allclass" href="facebook.html" target="_blank" title="mobile facebook">Mobile
-            Facebook</a><br><br><br><br>
-        <a class="allclass" href="show_hide.html" target="_blank" title="show hide ">Show Hide</a><br><br><br><br>
-        <a class="allclass" href="fetch_character.html" target="_blank" title=" swapi api ">Swapi
-            Api</a><br><br><br><br>
 
-        <a class="allclass" href="game.html" target="_blank" title=" tictoctoe game">Tictoctoe Game</a><br><br><br><br>
-        <a class="allclass" href="chess.html" target="_blank" title=" chess game">Chess Game</a><br><br><br><br>
-        <a class="allclass" href="time.html" target="_blank" title=" time second ">Time Second </a><br><br><br><br>
-        <a class="allclass" href="month.html" target="_blank" title=" calender Year">Calender Year </a><br><br><br><br>
+        <a class="allclass" href="animation.html" target="_blank" title="animation">Animation</a>
+        <a class="allclass" href="left_right.html" target="_blank" title="Animation_Rotate">Animation Rotate</a>
+        <a class="allclass" href="ecommerce.html" target="_blank" title="amazon shopping"> Amazon Shopping</a>
+        <a class="allclass" href="quiz_question.html" target="_blank" title="question answer">Question Answer</a>
 
-        <a class="allclass" href="local_storage.html" target="_blank" title="localstorage">Local Storage
-        </a><br><br><br><br>
-        <a class="allclass" href="speech.html" target="_blank" title="speech">Speech </a><br><br><br><br>
-        <a class="allclass" href="kashi.html" target="_blank" title="kashi">Kashi </a><br><br><br><br>
-        <a class="allclass" href="json.html" target="_blank" title="json">Json </a><br><br><br><br>
+
+        <a class="allclass" href="whatsapp.html" target="_blank" title="mobile whatsapp">Mobile Whatsapp</a>
+        <a class="allclass" href="facebook.html" target="_blank" title="mobile facebook">Mobile Facebook</a>
+        <a class="allclass" href="show_hide.html" target="_blank" title="show hide ">Show Hide</a>
+        <a class="allclass" href="fetch_character.html" target="_blank" title=" swapi api ">Swapi Api</a>
+
+
+        <a class="allclass" href="game.html" target="_blank" title=" tictoctoe game">Tictoctoe Game</a>
+        <a class="allclass" href="chess.html" target="_blank" title=" chess game">Chess Game</a>
+        <a class="allclass" href="time.html" target="_blank" title=" time second ">Time Second </a>
+        <a class="allclass" href="month.html" target="_blank" title=" calender Year">Calender Year </a>
+
+        <a class="allclass" href="local_storage.html" target="_blank" title="localstorage">Local Storage</a>
+        <a class="allclass" href="speech.html" target="_blank" title="speech ">Speech </a>
+        <a class="allclass" href="kashi.html" target="_blank" title="kashi">Kashi </a>
+        <a class="allclass" href="json.html" target="_blank" title="json">Json </a>
+
+        <a class="allclass" href="chats.html" target="_blank" title="chart">Chart </a>
+        <a class="allclass" href="line_chart.html" target="_blank" title="linechart">Line Chart </a>
+        <a class="allclass" href="bar_chart.html" target="_blank" title="barchart">Bar Chart </a>
+        <a class="allclass" href="pie_chart.html" target="_blank" title="piechart">Pie Chart </a>
 
     </div>
 
@@ -226,21 +330,28 @@
             let place = document.getElementsByTagName("a");
             console.log(place.length);
             n = place.length;
-
+            count = n;
             for (let i = 0; i <= n - 1; i++) {
-                count++;
+
+                // count++;
                 let x = (place[i].title.toLowerCase().trim());
                 console.log(x)
                 if (x.includes(name)) {
-                    place[i].style.display = "block";
+                    // place[i].style.display = "block";
 
-                    place[i].classList.add("lupt");
-                    place[i].classList.remove("lupt");
+                    place[i].classList.remove("hide");
+                    place[i].classList.add("show");
+
+                    // place[i].classList.remove("hidethelink");
+                    // place[i].classList.add("showthelink");
                 }
                 else {
-                    place[i].style.display = "none";
-                    place[i].classList.add("lupt");
-                    place[i].classList.remove("lupt");
+                    // place[i].style.display = "none";
+                    place[i].classList.add("hide");
+                    place[i].classList.remove("show");
+
+                    // place[i].classList.remove("showthelink");
+                    // place[i].classList.add("hidethelink");
                     count--;
                 }
                 add.innerHTML = `Found:${count}`;
@@ -251,7 +362,12 @@
 
 
     </script>
-    <!-- <img src="image/whatsapp.7f3687b9-847d-4f86-bb5c-c73259e2b38e"> -->
+    <br><br>
+
+
+    <!-- <div class="whatsapp">Contact to me Whatsapp</div> -->
+
+    <img class="img" src="picture/azad/azad5.jpg">
 </body>
 
 </html>

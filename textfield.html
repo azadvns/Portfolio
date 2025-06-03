@@ -1,30 +1,74 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>opacity</title>
     <style>
+        @keyframes add {
+            0% {
+                opacity: 0;
+            }
+            100%{opacity: 1;}
 
-@keyframes remove{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-}
-.lupt{
-    animation-name: remove;
-    position: absolute;
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    animation-direction: alternate;
-    
-}
+           
+        }
+
+        .show {
+            animation-name: add;
+        
+            animation-iteration-count: 1;
+            animation-duration: 5s;
+        animation-fill-mode: forwards;
+
+        }
+
+        @keyframes cancel {
+            0% {
+                opacity: 1; 
+            
+            }
+            100%{opacity: 0;}
+            
+
+           
+        }
+
+        .hide {
+            animation-name: cancel;
+            animation-iteration-count: 1;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
+
+        }
     </style>
 </head>
+
 <body>
-    <center>
-    <h1 class="lupt">Welcome to Banaras</h1>
-    </center>
+    
+        <button onclick="show()">Show</button><br>
+        <button onclick="hide()">Hide</button>
+        <div id="t1">Welcome to varanasi</div>
+    
+    <script>
+        function show() {
+            let t1=document.getElementById("t1");
+            t1.classList.remove("hide");
+            t1.classList.add("show");
+            
+            console.log(t1);
+        }
+        // *****************************************************************
+        function hide() {
+            let t1=document.getElementById("t1");
+            t1.classList.remove("show");
+            t1.classList.add("hide");
+            // clearInterval(show)
+            console.log(t1);
+
+        }
+    </script>
 </body>
+
 </html>

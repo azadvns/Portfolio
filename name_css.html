@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name</title>
+    <style>
+        @keyframes azad {
+            0% {
+                width: 200px;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        .toprotate {
+            overflow: hidden;
+            position: absolute;
+            top: 1px;
+            width: 200px;
+            height: 90px;
+            color: wheat;
+            
+            animation-name: azad;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            z-index: 50;
+
+
+        }
+
+        .secondrotate {
+            
+            position: absolute;
+            width: 200px;
+            height: 90px;
+            color: palevioletred;
+           
+            
+
+
+        }
+
+
+        .position {
+            position: relative;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="position">
+        <h1 class="toprotate">Varanasi </h1>
+        <h1 class="secondrotate">Varanasi </h1>
+    </div>
+<br><br>
+
+     <div class="position">
+        <h1 class="toprotate">Lucknow </h1>
+        <h1 class="secondrotate">Lucknow </h1>
+    </div>
+
+<br><br>
+
+     <div class="position">
+        <h1 class="toprotate">Karnataka </h1>
+        <h1 class="secondrotate">Karnataka </h1>
+    </div>
+
+    <br><br>
+
+     <div class="position">
+        <h1 class="toprotate">Allahabad </h1>
+        <h1 class="secondrotate">Allahabad </h1>
+    </div>
+
+    <br><br><br><br>
+
+     <div class="position">
+    <img class="toprotate" src="image/varanasi.jpg">
+    <img class="secondrotate" src="image/varanasi.jpg">
+        
+    </div>
+
+</body>
+
+</html>

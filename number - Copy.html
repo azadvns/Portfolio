@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+
+<body>
+    <pre id="output"></pre>
+    <script>
+        let x = [1, 2, 3, 4, 5];
+        let y = [5,4, 3, 2, 1];
+
+        
+        console.log(x);
+
+        let x2 = x.map(i => i * i);
+        let y2 = y.map(i => i * i);
+
+        let n = x.length;
+        let xy = x.map((val, i) => val * y[i]);
+
+        let sigma_x = x.reduce((a, b) => a + b, 0);
+        let sigma_y = y.reduce((a, b) => a + b, 0);
+        let sigma_x2 = x2.reduce((a, b) => a + b, 0);
+        let sigma_y2 = y2.reduce((a, b) => a + b, 0);
+        let sigma_xy = xy.reduce((a, b) => a + b, 0);
+
+
+        let b = (n * sigma_xy - sigma_x * sigma_y) / (n * sigma_x2 - sigma_x * sigma_x);
+        let a = (sigma_y - b * sigma_x) / n;
+
+        let r_numerator = (n * sigma_xy - sigma_x * sigma_y);
+        let r_denominator = Math.sqrt((n * sigma_x2 - sigma_x * sigma_x) * (n * sigma_y2 - sigma_y * sigma_y));
+        let r = r_numerator / r_denominator;
+
+        let output = `
+        x:${x}
+        y:${y}
+        x2:${x2}
+        y2:${y2}
+        xy:${xy}
+
+sum of x: ${sigma_x}
+sum of y: ${sigma_y}
+sum of x2: ${sigma_x2}
+sum of y2: ${sigma_y2}
+sum of xy: ${sigma_xy}
+
+a=${a}
+b=${b}
+r=${r}
+
+        `;
+        document.getElementById("output").textContent=output;
+
+    </script>
+</body>
+
+</html>
