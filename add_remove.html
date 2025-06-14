@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+</head>
+<style>
+    @keyframes rotate {
+        0% {
+            margin-top: -100px;
+            opacity: 0;
+        }
+
+        50% {
+            margin-top: 10%;
+            opacity: 0.5;
+        }
+
+        100% {
+            margin-top: 10%;
+            opacity: 1;
+        }
+    }
+
+    .color {
+        animation-name: rotate;
+        animation-iteration-count: 1;
+        animation-duration: 10s;
+        position: absolute;
+        background-color: aquamarine;
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+        border-color: aqua;
+        border-style: ridge;
+        animation-fill-mode: forwards;
+    }
+</style>
+
+<body>
+    <button onclick="add()">add</button>
+    <button onclick="remove()">remove</button>
+    <div id="t1"> </div>
+    <script>
+        function add() {
+
+            remove();
+            document.getElementById("t1").classList.add("color");
+
+
+        }
+        function remove() {
+            document.getElementById("t1").classList.remove("color");
+            document.getElementById("t1").style.opacity = 0;
+            setTimeout(setInterval,5000)
+            console.log("removing");
+        }
+
+    </script>
+</body>
+
+</html>

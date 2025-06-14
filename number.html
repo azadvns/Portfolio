@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* align-items: center; */
             padding: 10px;
         }
 
@@ -32,31 +32,157 @@
             border-radius: 10px;
             transition: background-color 0.3s;
         }
+
+
+        .cen {
+            display: flex;
+            justify-content: center;
+            box-shadow: 5px 5px 10px #888888;
+        }
+
+        .line {
+            display: flex;
+            justify-content: center;
+            background-color: mediumslateblue;
+            box-shadow: 5px 5px 10px #888888;
+
+        }
+
+
+        .color {
+
+            background-color: mediumorchid;
+            border-radius: 10px;
+            border-style: ridge;
+            border-color: aqua;
+
+        }
+
+        /* ************************************************************** */
+
+        @keyframes move {
+            0% {
+                margin-top: -50px;
+                opacity: 0;
+            }
+
+            50% {
+                margin-top: 40%;
+                opacity: 0.5;
+            }
+
+            100% {
+                margin-top: 40%;
+                opacity: 1;
+            }
+        }
+
+        .spinner {
+            animation-name: move;
+
+            margin-top: -1000px;
+            animation-iteration-count: 1;
+            opacity: 0;
+            animation-duration: 10s;
+
+            animation-fill-mode: forwards;
+
+            margin-right: 80%;
+            border-radius: 10px;
+
+            position: absolute;
+
+            margin-top: 250px;
+            /* background-color: antiquewhite; */
+            /* border-style: ridge; */
+            /* border-color: aqua; */
+
+
+        }
+
+        /* ************************************************* */
+
+
+
+        canvas {
+            width: 200px;
+            height: 200px;
+            margin-left: 30%;
+        }
+
+        .xtopfrom {
+            position: absolute;
+            top: 300px;
+            /* background-color: wheat; */
+            height: 30px;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+
+
+        .ytopfrom {
+            position: absolute;
+            top: 350px;
+            /* background-color: wheat; */
+            height: 30px;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+
+        .spin {
+            background-color: aqua;
+            position: absolute;
+            margin-top: 120px;
+        }
+
+        .image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
     </style>
 </head>
 
 <body>
-    <div style="display: flex; flex-direction: row;">
-        X<input type="text" id="txtX">
 
-        Y<input type="text" id="txtY">
+    <img class="image" src="picture/azad/azad7.jpg">
+
+    <!-- <center> -->
+    <h1 class="line">X and Y Value to Line_Chart</h1>
+    <!-- </center> -->
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        X<input type="text" id="txtX" placeholder="1,2,3,4,5" value="1,2,3,4,5">
+
+        Y<input type="text" id="txtY" placeholder="2,4,6,3,7" value="2,4,6,3,7">
     </div>
-    <div style="display: flex;flex-direction: row;">
+    <div style="display: flex;flex-direction: row;justify-content: center;">
 
         <button style="display: none;" onclick="line()">line</button>
-        <button onclick="solve()">Solved</button>
+        <button onclick="solve()">Solve</button>
+        <button onclick="remove()">remove</button>
+
         <button style="display: none;" onclick="arrayclick()">click</button>
+
     </div>
-    <pre id="x1"></pre>
-    <pre id="y1"></pre>
-    <pre id="output"></pre>
+    <pre class="xtopfrom" id="x1"></pre>
+    <pre class="ytopfrom" id="y1"></pre>
+    <div id="output"></div>
     <canvas id="myChart"></canvas>
+    <div id="example"></div>
+
+    <h2>
 
 
+    </h2>
 
     <script>
 
         function solve() {
+
+            // document.getElementById("output").classList.remove("spinner");
+
+
+
             const x = document.getElementById("txtX").value.toLowerCase().trim();
 
             let xarray = x.split(",");
@@ -87,9 +213,11 @@
 y:${yarray}
 `;
 
+            document.getElementById("output").classList.add("spinner");
+
             document.getElementById("y1").textContent = y1;
             arrayclick(xarray, yarray);
-            line(xarray,yarray);
+            line(xarray, yarray);
         }
 
 
@@ -174,9 +302,17 @@ y:${yarray}
         b:${b}
         a:${a}
 
+        
     
         `;
+            // alert();
+            // document.getElementById("output").textContent = "";
+            // alert();
+
+
+            // document.getElementById("output").classList.remove("spinner");
             document.getElementById("output").textContent = output;
+            // document.getElementById("output").classList.add("spinner");
 
         }
 
@@ -192,7 +328,7 @@ y:${yarray}
 
 
 
-        function line(x,y) {
+        function line(x, y) {
             if (myChart) {
                 myChart.destroy();
             }
@@ -203,8 +339,8 @@ y:${yarray}
                     datasets: [{
                         label: `Sales`,
                         data: y,
-                        borderColor: `red`,
-                        backgroundColor:`blue`,
+                        borderColor: [`red`, `green`],
+
                         fill: true
                     }]
                 },
@@ -223,7 +359,18 @@ y:${yarray}
 
         }
 
+        // ******************************* remove*******************************************
+
+        function remove() {
+
+            document.getElementById("output").classList.remove("spinner");
+            document.getElementById("output").style.opacity=0;
+
+            //  alert();
+        }
+
     </script>
+
 
 </body>
 
