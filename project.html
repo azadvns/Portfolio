@@ -56,11 +56,12 @@
 
 
         /* ******************************************************************* */
-          a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         @keyframes add {
             0% {
                 opacity: 0;
@@ -77,9 +78,9 @@
 
         .show {
             animation-name: add;
-        
+
             animation-iteration-count: 1;
-            animation-duration:5s;
+            animation-duration: 5s;
             animation-fill-mode: forwards;
 
         }
@@ -179,21 +180,21 @@
         }
 
         .input {
+            
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
+            width: 300px;
             height: 30px;
-            width: 400px;
-            border-radius: 20px;
+            border-radius: 10px;
             border-style: ridge;
             border-color: blue;
-            font-size: 20px;
-
-
         }
 
 
         .allclass {
-            background-color: mediumslateblue ;
+            background-color: mediumslateblue;
             /* width: 150px;
             height: 30px; */
             color: black;
@@ -208,7 +209,7 @@
         }
 
         .allclass:hover {
-            background-color:mediumvioletred;
+            background-color: mediumvioletred;
             color: black;
         }
 
@@ -237,13 +238,17 @@
         }
 
         .button {
+            display: flex;
+            justify-content: center;
+            /* flex-direction: row; */
+            flex-wrap: wrap;
             width: 100px;
             height: 30px;
-            border-radius: 20px;
+            border-radius: 10px;
             border-color: blue;
-            position: absolute;
-            top: 170px;
-            margin-left: 205px;
+            /* position: absolute; */
+            /* top: 170px; */
+            /* margin-left: 27%; */
         }
 
         .whatsapp {
@@ -256,15 +261,17 @@
             margin-left: 500px;
         }
 
-.img{
-    width: 200px;
-    height: 200px;
-margin-left: 40%;
-border-radius: 20px;
-border-style: ridge;
-border-color: aquamarine;
-}
-
+        .img {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            margin-left: 40%;
+            border-radius: 20px;
+            border-style: ridge;
+            border-color: aquamarine;
+        }
     </style>
 </head>
 
@@ -279,8 +286,9 @@ border-color: aquamarine;
     <center>
         <input class="input" type="search" id="t1" onkeyup="selectname()" placeholder="Search Programs">
         <button class="button" id="add"></button>
-        <br><br><br>
+
     </center>
+    
 
     <div class="row">
 
@@ -368,9 +376,9 @@ border-color: aquamarine;
 
 
     <!-- <div class="whatsapp">Contact to me Whatsapp</div> -->
-     <h2 style="background-color: blue;color: white;border-radius: 10px;border-style: ridge;border-color: aquamarine; ">
-Hi I am Azad Prajapati I am from Varanasi I am frontend developer I have skill Html,Css, Bootstrap,
-    Javascript,Json, React.js, Sql</h2>
+    <h2 style="background-color: blue;color: white;border-radius: 10px;border-style: ridge;border-color: aquamarine; ">
+        Hi I am Azad Prajapati I am from Varanasi I am frontend developer I have skill Html,Css, Bootstrap,
+        Javascript,Json, React.js, Sql</h2>
 
     <img class="img" src="picture/azad/azad5.jpg">
 </body>
