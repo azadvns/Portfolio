@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        canvas {
+            max-width: 80%;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100px;
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: aqua;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="bar()">Bar</button>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        lables = [`January`, `Febuary`, `March`, `April`, `May`, `June`];
+        data = [3, 6, 8, 5, 2, 9];
+        var ctx = document.getElementById("myChart").getContext(`2d`);
+        var myChart;
+
+        function bar() {
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: `bar`,
+                data: {
+                    lables: lables,
+                    datasets: [{
+                        lable: `sales`,
+                        data: data,
+                        background: `pink`,
+                        color: `blue`,
+                        borderWidth: 1,
+                    }]
+                },
+                Options: {
+                    responsive: true,
+                    Plugin: {
+                        legend: {
+                            position: `top`,
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
+                    },
+                    Scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+
+            })
+        }
+    </script>
+
+</body>
+
+</html>

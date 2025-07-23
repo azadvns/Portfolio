@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <center>
+        <h1>Local Storage data</h1>
+        <button onclick="storedata()">Store Data</button>
+        <button onclick="retrieve()">Retrieve Data</button>
+        <button onclick="removeitem()">Remove Item</button>
+        <button onclick="clear()">Clear</button>
+        <pre id="output"></pre>
+    </center>
+
+    <script>
+        function storedata() {
+            localStorage.setItem(`Username`, `Champak`);
+            localStorage.setItem(`color`, `blue`);
+            localStorage.setItem(`language`, `javascript`);
+            document.getElementById("output").innerHTML = `Data store successfully`;
+        }
+        function retrieve() {
+            document.getElementById(`output`).innerHTML = '';
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                document.getElementById("output").innerHTML += `${key}: ${value}<br>`;
+            }
+
+
+        }
+
+
+        function removeitem() {
+            localStorage.removeItem(`username`);
+            document.getElementById("output").innerHTML = `Item Remove Successfully`;
+        }
+
+        function clear() {
+            localStorage.clear();
+            document.getElementById("output").innerHTML = `Item Clear Successfully`
+        }
+
+    </script>
+</body>
+
+</html>

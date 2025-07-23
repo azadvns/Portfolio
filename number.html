@@ -93,10 +93,7 @@
             position: absolute;
 
             margin-top: 250px;
-            /* background-color: antiquewhite; */
-            /* border-style: ridge; */
-            /* border-color: aqua; */
-
+            
 
         }
 
@@ -193,9 +190,9 @@
                 xarray[i] = Number([xarray[i]]);
             console.log(xarray);
             let x1 = `
-  x:${xarray}
+                        x:${xarray}
   
-  `;
+                                      `;
             document.getElementById("x1").textContent = x1;
 
 
@@ -210,8 +207,8 @@
             console.log(yarray);
 
             let y1 = `
-y:${yarray}
-`;
+                         y:${yarray}
+                                    `;
 
             document.getElementById("output").classList.add("spinner");
 
@@ -364,7 +361,7 @@ y:${yarray}
         function remove() {
 
             document.getElementById("output").classList.remove("spinner");
-            document.getElementById("output").style.opacity=0;
+            document.getElementById("output").style.opacity = 0;
 
             //  alert();
         }
